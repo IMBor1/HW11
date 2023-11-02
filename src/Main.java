@@ -3,7 +3,7 @@ import java.time.LocalDate;
 public class Main {
     public static void checkLeap(int year) {
         if (year > 1584) {
-            if (((year % 400 == 0) || (year % 4 == 0)) && (year % 100 != 0)) {
+            if ((year % 100 != 0 && year % 4 == 0) || year % 400 == 0) {
                 System.out.println(year + " год является високосным");
             } else {
                 System.out.println(year + " год не является високосным");
@@ -15,16 +15,16 @@ public class Main {
         }
     }
 
-    public static void instalSofware(int a, int b) {
+    public static void instalSofware(int os, int year) {
 
 
-        if (b >= 2015) {
-            if (a == 0) {
+        if (year >= 2015) {
+            if (os == 0) {
                 System.out.println("Установите обычную версию приложения для iOS по ссылке");
             } else {
                 System.out.println("Установите обычную версию приложения для Android по ссылке");
             }
-        } else if (a == 0) {
+        } else if (os == 0) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
         } else {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
@@ -33,17 +33,17 @@ public class Main {
 
     }
 
-    public static int chekingDistance(int a) {
+    public static int chekingDistance(int distance) {
 
         int days = 1;
-        if (a <= 20) {
+        if (distance <= 20) {
             return days;
-        } else if (a > 20 && a <= 60) {
+        } else if (distance > 20 && distance <= 60) {
             return days + 1;
-        } else if (a > 60 && a <= 100) {
+        } else if (distance > 60 && distance <= 100) {
             return days + 2;
         } else {
-            return 0;
+            return -1;
         }
     }
 
